@@ -5,7 +5,7 @@
   <artifactId>mybatis-tutorial</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>mybatis-tutorial Maven Webapp</name>
+  <name>mybatis-tutorial</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -124,5 +124,14 @@
   
   <build>
     <finalName>mybatis-tutorial</finalName>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.3.2</version>
+      </plugin>
+    </plugins>
+      
   </build>
 </project>
