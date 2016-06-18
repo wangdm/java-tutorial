@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wangdm.tutorial</groupId>
+  <artifactId>hibernate-tutorial</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>hibernate-tutorial</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+      <junit.version>4.12</junit.version>
+      <spring.version>4.2.5.RELEASE</spring.version>
+      <hibernate.version>4.3.11.Final</hibernate.version>
+  </properties>
+    
+  <dependencies>
+  
+    <!-- junit -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- Hibernate -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>${hibernate.version}</version>
+	</dependency>
+    
+  </dependencies>
+  <build>
+    <finalName>hibernate-tutorial</finalName>
+  </build>
+</project>
