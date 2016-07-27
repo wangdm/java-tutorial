@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE generatorConfiguration  
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
-  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>  
 <!-- 数据库驱动-->  
     <classPathEntry  location="D:/Java/apache-maven-3.3.9/repository/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar"/>  
