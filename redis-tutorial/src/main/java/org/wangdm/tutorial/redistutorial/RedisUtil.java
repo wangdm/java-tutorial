@@ -9,7 +9,7 @@ public class RedisUtil {
 
 	private static RedisUtil instance = null;
 	
-    private  Map<String,JedisPool> maps  = new HashMap<String,JedisPool>();  
+    private  Map<String,JedisPool> maps  = new HashMap<String,JedisPool>();
 	
 	private RedisUtil(){}
 	
