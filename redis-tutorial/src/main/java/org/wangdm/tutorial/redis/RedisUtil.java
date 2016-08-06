@@ -1,4 +1,4 @@
-package org.wangdm.tutorial.redistutorial;
+package org.wangdm.tutorial.redis;
 
 import java.util.HashMap;
 import java.util.Map;
