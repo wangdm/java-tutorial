@@ -19,10 +19,10 @@
         ">
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <!-- override these for application-specific URLs if you like: -->
-        <property name="loginUrl" value="/login.jsp"/>
-        <property name="successUrl" value="/home.jsp"/>
-        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/member"/>
+        <property name="unauthorizedUrl" value="/403"/>
         <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
         <!-- defined will be automatically acquired and available via its beanName in chain        -->
         <!-- definitions, but you can perform instance overrides or name aliases here if you like: -->
@@ -33,11 +33,11 @@
 <!--         </property> -->
         <property name="filterChainDefinitions">
             <value>
-                <!-- some example chain definitions: -->
-                /admin/** = authc, roles[admin]
-                /docs/** = authc, perms[document:read]
-                /** = authc
-                <!-- more URL-to-FilterChain definitions here -->
+                /member = authc
+                /login = authc
+                /logout = logout
+                /admin = authc, roles[admin]
+                /docs = authc, perms[document:read]
             </value>
         </property>
     </bean>
@@ -46,12 +46,26 @@
     <!-- They will automatically be acquired by the 'shiroFilter' bean above and made available -->
     <!-- to the 'filterChainDefinitions' property.  Or you can manually/explicitly add them     -->
     <!-- to the shiroFilter's 'filters' Map if desired. See its JavaDoc for more details.       -->
-    <bean id="someFilter" class="..."/>
-    <bean id="anotherFilter" class="..."></bean>
+<!--     <bean id="someFilter" class="..."/> -->
+<!--     <bean id="anotherFilter" class="..."></bean> -->
+
+<!--     缓存管理器 使用Ehcache实现   -->
+<!--     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">   -->
+<!--         <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>   -->
+<!--     </bean>   -->
     
+    <!-- 会话管理器 -->  
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">  
+        <property name="globalSessionTimeout" value="1800000"/>  
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>  
+    
+    <!-- 安全管理器 -->  
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
         <property name="realm" ref="myRealm"/>
+        <property name="sessionManager" ref="sessionManager"/>  
+        <property name="cacheManager" ref="cacheManager"/>  
         <!-- By default the servlet container sessions will be used.  Uncomment this line
              to use shiro's native sessions (see the JavaDoc for more): -->
         <!-- <property name="sessionMode" value="native"/> -->
@@ -59,6 +73,6 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
     
     <!-- Define the Shiro Realm implementation you want to use to connect to your back-end -->
-    <bean id="myRealm" class="..." />
+    <bean id="myRealm" class="com.wangdm.tutorial.shiro.shiro.MyShiroRealm" />
 
 </beans>

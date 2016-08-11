@@ -11,7 +11,7 @@
             http://www.springframework.org/schema/mvc 
             http://www.springframework.org/schema/mvc/spring-mvc.xsd">
  
- 	<context:component-scan base-package="com.wangdm.tutorial.freemarker.controller" />
+ 	<context:component-scan base-package="com.wangdm.tutorial.shiro.controller" />
 	<context:annotation-config />
 	
 	<!-- don't handle the static resource -->
@@ -31,9 +31,14 @@
     different view resolving based on Locale, you have to use the resource bundle resolver.
     -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="cache" value="true"/>
+<!--         <property name="cache" value="true"/> -->
         <property name="prefix" value=""/>
-        <property name="suffix" value=".ftl"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
+    
+<!--     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!--         <property name="prefix" value="/WEB-INF/ftl/"/> -->
+<!--         <property name="suffix" value=".jsp"/> -->
+<!--     </bean> -->
 
 </beans>

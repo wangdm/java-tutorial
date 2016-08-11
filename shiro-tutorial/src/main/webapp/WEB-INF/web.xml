@@ -11,9 +11,15 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:/spring-*.xml</param-value>
     </context-param>
-
+    
+    <!-- 配置Spring监听器 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Spring 刷新Introspector防止内存泄露 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
 
     <servlet>
@@ -42,5 +48,9 @@
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+    
 </web-app>
