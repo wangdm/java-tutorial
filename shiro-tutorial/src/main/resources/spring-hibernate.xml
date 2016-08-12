@@ -22,23 +22,14 @@
     <!-- 加载资源文件  其中包含变量信息，必须在Spring配置文件的最前面加载，即第一个加载-->
     <context:property-placeholder location="classpath:persistence-mysql.properties" />
     
-    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">  
-
-    </bean>  
-    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" >
-            <property name="configLocation">  
-            <value>classpath:ehcache.xml</value>  
-        </property>  
-        <!-- 由于hibernate也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->  
-        <property name="shared" value="true"/>  
-    </bean>
     <bean id="sessionFactory" 
         class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
             <list>
                 <!-- 可以加多个包 -->
-                <value>com.lubocloud.touchschoolcms.entity</value>
+                <value>com.wangdm.core.entity</value>
+                <value>com.wangdm.tutorial.shiro.entity</value>
             </list>
         </property>
         <property name="hibernateProperties">
