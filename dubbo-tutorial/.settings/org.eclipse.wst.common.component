@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="dubbo-tutorial">
+    <wb-module deploy-name="tutorial-dubbo">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="context-root" value="dubbo-tutorial"/>
-        <property name="java-output-path" value="/dubbo-tutorial/target/classes"/>
+        <property name="context-root" value="tutorial-dubbo"/>
+        <property name="java-output-path" value="/tutorial-dubbo/target/classes"/>
     </wb-module>
 </project-modules>

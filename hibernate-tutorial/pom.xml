@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.wangdm.tutorial</groupId>
-  <artifactId>hibernate-tutorial</artifactId>
+  <artifactId>tutorial-hibernate</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>hibernate-tutorial</name>
+  <name>tutorial-hibernate</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -208,7 +208,7 @@
   </dependencies>
    
   <build>
-    <finalName>jms-tutorial</finalName>
+    <finalName>tutorial-hibernate</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

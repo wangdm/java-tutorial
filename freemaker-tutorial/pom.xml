@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.wangdm.tutorial</groupId>
-  <artifactId>freemaker-tutorial</artifactId>
+  <artifactId>tutorial-freemaker</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>freemaker-tutorial Maven Webapp</name>
+  <name>tutorial-freemaker</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -109,7 +109,7 @@
   </dependencies>
   
   <build>
-    <finalName>freemaker-tutorial</finalName>
+    <finalName>tutorial-freemaker</finalName>
     <plugins>    
         <plugin>    
             <artifactId>maven-compiler-plugin</artifactId>

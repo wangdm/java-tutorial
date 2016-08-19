@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.wangdm.tutorial</groupId>
-  <artifactId>dubbo-tutorial</artifactId>
+  <artifactId>tutorial-dubbo</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>dubbo-tutorial</name>
+  <name>tutorial-dubbo</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -117,7 +117,7 @@
 
   </dependencies>
   <build>
-    <finalName>dubbo-tutorial</finalName>
+    <finalName>tutorial-dubbo</finalName>
     <plugins>    
         <plugin>    
 	        <artifactId>maven-compiler-plugin</artifactId>

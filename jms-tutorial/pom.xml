@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.wangdm.tutorial</groupId>
-  <artifactId>jms-tutorial</artifactId>
+  <artifactId>tutorial-jms</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>jms-tutorial</name>
+  <name>tutorial-jms</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -94,7 +94,7 @@
   </dependencies>
    
   <build>
-    <finalName>jms-tutorial</finalName>
+    <finalName>tutorial-jms</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

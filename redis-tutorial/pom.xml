@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.wangdm.tutorial</groupId>
-  <artifactId>redis-tutorial</artifactId>
+  <artifactId>tutorial-redis</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>redis-tutorial</name>
+  <name>tutorial-redis</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -52,7 +52,7 @@
   </dependencies>
    
   <build>
-    <finalName>redis-tutorial</finalName>
+    <finalName>tutorial-redis</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
