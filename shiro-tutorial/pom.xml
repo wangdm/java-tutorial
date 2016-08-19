@@ -197,12 +197,12 @@
     <!-- wangdm -->
     <dependency>
           <groupId>com.wangdm</groupId>
-          <artifactId>wangdm-base</artifactId>
+          <artifactId>wangdm-core</artifactId>
           <version>${wangdm.version}</version>
     </dependency>
     <dependency>
           <groupId>com.wangdm</groupId>
-          <artifactId>wangdm-core</artifactId>
+          <artifactId>wangdm-user</artifactId>
           <version>${wangdm.version}</version>
     </dependency>
 

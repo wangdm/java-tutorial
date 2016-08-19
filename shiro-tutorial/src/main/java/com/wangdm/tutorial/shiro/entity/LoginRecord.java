@@ -3,8 +3,8 @@ package com.wangdm.tutorial.shiro.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.wangdm.base.entity.BaseEntity;
-import com.wangdm.base.constant.EntityType;
+import com.wangdm.core.constant.EntityType;
+import com.wangdm.core.entity.BaseEntity;
 
 @Entity
 @Table(name="loginrecord")
