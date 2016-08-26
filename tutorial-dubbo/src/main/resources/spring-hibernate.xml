@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc 
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">               
+    <context:component-scan base-package="com.wangdm.tutorial.shiro.entity" />
+    <context:annotation-config />
+    <!-- 加载资源文件  其中包含变量信息，必须在Spring配置文件的最前面加载，即第一个加载-->
+    <context:property-placeholder location="classpath:persistence-mysql.properties" />
+    
+    <bean id="sessionFactory" 
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan">
+            <list>
+                <!-- 可以加多个包 -->
+                <value>com.wangdm.core.entity</value>
+                <value>com.wangdm.tutorial.shiro.entity</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+<!--                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop> -->
+                
+<!--                 <prop key="hibernate.connection.charSet">${hibernate.connection.charSet}</prop> -->
+<!--                 <prop key="hibernate.connection.useUnicode">${hibernate.connection.useUnicode}</prop> -->
+<!--                 <prop key="hibernate.connection.characterEncoding">${hibernate.connection.characterEncoding}</prop> -->
+<!--                 <prop key="hibernate.connection.autocommit">true</prop> -->
+<!--                 <prop key="hibernate.connection.release_mode">auto</prop> -->
+                
+<!--                 <prop key="hibernate.jdbc.fetch_size">50</prop> -->
+<!--                 <prop key="hibernate.jdbc.batch_size">50</prop> -->
+                
+<!--                 <prop key="hibernate.cache.use_query_cache">false</prop> -->
+<!--                 <prop key="hibernate.cache.use_second_level_cache">false</prop> -->
+                
+<!--                 <prop key="hibernate.current_session_context_class">thread</prop> -->
+            </props>
+        </property>
+    </bean>
+    
+    <!-- 数据库映射 -->
+    <!--  class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" -->
+    <!--  class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="${jdbc.driverClassName}" />
+      <property name="url" value="${jdbc.url}" />
+      <property name="username" value="${jdbc.user}" />
+      <property name="password" value="${jdbc.pass}" />
+   </bean>
+   
+    <!-- 配置Hibernate事务管理器 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+      <property name="sessionFactory" ref="sessionFactory" />
+   </bean>
+   
+<!--    <bean id="persistenceExceptionTranslationPostProcessor" -->
+<!--           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> -->
+
+<!--     <tx:advice id="transactionAdvice" transaction-manager="transactionManager"> -->
+<!--         <tx:attributes> -->
+<!--             <tx:method name="save*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="add*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="create*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="insert*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="update*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="merge*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="del*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="remove*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="put*" propagation="REQUIRED" /> -->
+<!--             <tx:method name="use*" propagation="REQUIRED"/> -->
+<!--             <tx:method name="get*" propagation="REQUIRED" read-only="true" /> -->
+<!--             <tx:method name="count*" propagation="REQUIRED" read-only="true" /> -->
+<!--             <tx:method name="find*" propagation="REQUIRED" read-only="true" /> -->
+<!--             <tx:method name="list*" propagation="REQUIRED" read-only="true" /> -->
+<!--             <tx:method name="*" read-only="true" /> -->
+<!--         </tx:attributes> -->
+<!--     </tx:advice> -->
+
+<!--     <aop:config expose-proxy="true"> -->
+<!--         <aop:pointcut id="transactionPointcut" expression="execution(* com.persia.service..*.*(..))" /> -->
+<!--         <aop:advisor advice-ref="transactionAdvice" pointcut-ref="transactionPointcut"/> -->
+<!--     </aop:config> -->
+
+</beans>
