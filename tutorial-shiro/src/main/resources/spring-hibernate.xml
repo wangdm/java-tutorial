@@ -20,7 +20,7 @@
     <context:component-scan base-package="com.wangdm.tutorial.shiro.entity" />
     <context:annotation-config />
     <!-- 加载资源文件  其中包含变量信息，必须在Spring配置文件的最前面加载，即第一个加载-->
-    <context:property-placeholder location="classpath:persistence-mysql.properties" />
+    <context:property-placeholder location="classpath:hibernate.properties" />
     
     <bean id="sessionFactory" 
         class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -60,10 +60,10 @@
     <!--  class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" -->
     <!--  class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      <property name="driverClassName" value="${jdbc.driverClassName}" />
-      <property name="url" value="${jdbc.url}" />
-      <property name="username" value="${jdbc.user}" />
-      <property name="password" value="${jdbc.pass}" />
+      <property name="driverClassName" value="${hibernate.connection.driver_class}" />
+      <property name="url" value="${hibernate.connection.url}" />
+      <property name="username" value="${hibernate.connection.username}" />
+      <property name="password" value="${hibernate.connection.password}" />
    </bean>
    
     <!-- 配置Hibernate事务管理器 -->
@@ -72,6 +72,7 @@
         class="org.springframework.orm.hibernate4.HibernateTransactionManager">
       <property name="sessionFactory" ref="sessionFactory" />
    </bean>
+   
    
 <!--    <bean id="persistenceExceptionTranslationPostProcessor" -->
 <!--           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> -->

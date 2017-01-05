@@ -33,7 +33,8 @@
 <!--         </property> -->
         <property name="filterChainDefinitions">
             <value>
-                /member = authc
+                /** = authc
+                /assets/** = none
                 /login = authc
                 /logout = logout
                 /admin = authc, roles[admin]
@@ -70,6 +71,7 @@
              to use shiro's native sessions (see the JavaDoc for more): -->
         <!-- <property name="sessionMode" value="native"/> -->
     </bean>
+    
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
     
     <!-- Define the Shiro Realm implementation you want to use to connect to your back-end -->
