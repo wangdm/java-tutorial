@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xmlns:context="http://www.springframework.org/schema/context"
+    	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc 
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+ 
+ 	<context:component-scan base-package="com.wangdm.tutorial.webrtc.controller" />
+	<context:annotation-config />
+	
+	<!-- don't handle the static resource -->
+    <!-- <mvc:default-servlet-handler /> -->
+ 
+    <!-- if you use annotation you must configure following setting -->
+    <mvc:annotation-driven />
+    
+    <!--
+    View resolvers can also be configured with ResourceBundles or XML files. If you need
+    different view resolving based on Locale, you have to use the resource bundle resolver.
+    --> 
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="cookieName" value="clientlanguage"/>
+        <property name="cookieMaxAge" value="100000"/>
+    </bean>
+    
+    <bean id="themeSource"  
+        class="org.springframework.ui.context.support.ResourceBundleThemeSource">  
+        <property name="basenamePrefix" value="themes/"></property>  
+    </bean>  
+    
+    <bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+        <property name="cookieName" value="clienttheme"/>
+        <property name="cookieMaxAge" value="100000"/>
+        <property name="defaultThemeName" value="bootstrap"/>
+    </bean>
+    
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.sql.SQLException">exception</prop>
+                <prop key="java.io.IOException">exception</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!--
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+       <property name="maxUploadSize" value="1073741824"></property>
+    </bean>
+     -->
+    
+</beans>
