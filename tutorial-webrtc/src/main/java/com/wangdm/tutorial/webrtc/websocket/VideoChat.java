@@ -28,13 +28,13 @@ public class VideoChat {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("client connected");
+        System.out.println("client connected("+clients.size()+")");
     }
 
     @OnClose
     public void onClose(Session session){
         clients.remove(session);
-        System.out.println("client closed");
+        System.out.println("client closed("+clients.size()+")");
     }
     
     @OnError
